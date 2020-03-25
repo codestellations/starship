@@ -8,7 +8,7 @@ public class EnemyShooting : MonoBehaviour {
 	public GameObject bulletPrefab;
 	int bulletLayer;
 
-	public float fireDelay = 0.50f;
+	public float fireDelay = 10f;
 	float cooldownTimer = 0;
 
 	Transform player;
@@ -30,16 +30,15 @@ public class EnemyShooting : MonoBehaviour {
 			}
 		}
 
-
 		cooldownTimer -= Time.deltaTime;
 		
-		if( cooldownTimer <= 0 && player != null && Vector3.Distance(transform.position, player.position) < 4) {
+		if( cooldownTimer <= 0 && player != null) {
 			// SHOOT!
-			//Debug.Log ("Enemy Pew!");
+			Debug.Log ("Enemy Pew!");
 			cooldownTimer = fireDelay;
-			
+
 			Vector3 offset = transform.rotation * bulletOffset;
-			
+			bulletPrefab = Resources.Load("Missile") as GameObject;
 			GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
 			bulletGO.layer = bulletLayer;
 		}
