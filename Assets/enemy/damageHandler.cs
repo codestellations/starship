@@ -12,4 +12,12 @@ public class damageHandler : MonoBehaviour
            Destroy(gameObject);
        }
    }
+
 }
+
+
+public GameObject bulletPrefab;
+void Update ()
+   {
+
+   }
