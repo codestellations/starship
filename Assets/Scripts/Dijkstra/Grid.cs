@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
+    public bool displayGridGizmos = false;
     public Transform player;
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
@@ -69,7 +70,7 @@ public class Grid : MonoBehaviour
 
     void OnDrawGizmos(){
         Gizmos.DrawWireCube(transform.position, new Vector2(gridWorldSize.x, gridWorldSize.y));
-        if (grid != null){
+        if (grid != null && displayGridGizmos){
             Node playerNode = NodeFromWorldPoint(player.position);
             foreach (Node n in grid){
                 Gizmos.color = (n.walkable)?Color.white:Color.red;
@@ -85,6 +86,5 @@ public class Grid : MonoBehaviour
             }
         }
     }
-
 
 }

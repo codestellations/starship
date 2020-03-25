@@ -9,8 +9,8 @@ public class Node
     public int gridX;
     public int gridY;
 
-    public int gCost;
-    public int hCost;
+    public float gCost;
+    public float hCost;
     public Node parent;
 
     public Node(bool _walkable, Vector2 _worldPos, int _gridX, int _gridY){
@@ -20,7 +20,7 @@ public class Node
         gridY = _gridY;
     }
 
-    public int fCost {
+    public float fCost {
         get{
             return gCost + hCost;
         }

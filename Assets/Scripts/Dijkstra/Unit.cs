@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public bool displayGridGizmos = false;
     public Transform target;
-    float speed = 5;
+    public float speed = 3;
     Vector3[] path;
     int targetIndex;
 
@@ -35,6 +36,23 @@ public class Unit : MonoBehaviour
             }
             transform.position = Vector2.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
             yield return null;
+        }
+    }
+
+    public void OnDrawGizmos(){
+        if (path != null && displayGridGizmos){
+            for (int i = targetIndex; i < path.Length; i++){
+                Gizmos.color = Color.white;
+                Gizmos.DrawCube(path[i], Vector3.one);
+
+                if (i == targetIndex){
+                    Gizmos.DrawLine(transform.position, path[i]);
+                }
+
+                else{
+                    Gizmos.DrawLine(path[i-1], path[i]);
+                }
+            }
         }
     }
 }

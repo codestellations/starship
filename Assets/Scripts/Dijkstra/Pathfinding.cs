@@ -6,12 +6,7 @@ using System;
 public class Pathfinding : MonoBehaviour
 {
     PathRequestManager requestManager;
-    // public Transform seeker, target;
     Grid grid;
-
-    // void Update(){
-    //     FindPath(seeker.position, target.position);
-    // }
 
     void Awake(){
         requestManager = GetComponent<PathRequestManager>();
@@ -21,6 +16,8 @@ public class Pathfinding : MonoBehaviour
     public void StartFindPath(Vector3 startPos, Vector3 targetPos){
         StartCoroutine(FindPath(startPos, targetPos));
     }
+    
+    // pathfinding Dijkstra function
     IEnumerator FindPath(Vector3 startPos, Vector3 targetPos){
         Vector3[] waypoints = new Vector3[0];
         bool pathSuccess = false;
@@ -29,10 +26,14 @@ public class Pathfinding : MonoBehaviour
         Node targetNode = grid.NodeFromWorldPoint(targetPos);
 
         if (startNode.walkable && targetNode.walkable){
+            // openSet represents unexplored grids
             List<Node> openSet = new List<Node>();
+
+            // closedSet represents visited grids
             HashSet<Node> closedSet = new HashSet<Node>();
             openSet.Add(startNode);
 
+            // looping the unexplored grids
             while (openSet.Count > 0){
                 Node currentNode = openSet[0];
                 for (int i = 1; i < openSet.Count; i++){
@@ -50,16 +51,20 @@ public class Pathfinding : MonoBehaviour
                 }
 
                 foreach (Node neighbor in grid.GetNeighbors(currentNode)){
+                    // if the node is not walkable or has been visited
                     if (!neighbor.walkable || closedSet.Contains(neighbor)){
                         continue;
                     }
 
-                    int newMovementCostToNeighbor = currentNode.gCost + GetDistance(currentNode, neighbor);
+                    // get the new distance
+                    float newMovementCostToNeighbor = currentNode.gCost + Vector2.Distance(currentNode.worldPosition, neighbor.worldPosition);
+                    
+                    // if the new distance is less than current distance                    
                     if (newMovementCostToNeighbor < neighbor.gCost || !openSet.Contains(neighbor)){
                         neighbor.gCost = newMovementCostToNeighbor;
-                        neighbor.hCost = GetDistance(neighbor, targetNode);
                         neighbor.parent = currentNode;
 
+                        // if the neighbor has not yet been visited
                         if (!openSet.Contains(neighbor)){
                             openSet.Add(neighbor);
                         }
@@ -74,6 +79,7 @@ public class Pathfinding : MonoBehaviour
         requestManager.FinishedProcessingPath(waypoints, pathSuccess);
     }
 
+    // for path visualization
     Vector3[] RetracePath(Node startNode, Node endNode){
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
@@ -103,16 +109,5 @@ public class Pathfinding : MonoBehaviour
             directionOld = directionNew;
         }
         return waypoints.ToArray();
-    }
-
-    int GetDistance(Node nodeA, Node nodeB){
-        int distX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
-        int distY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
-
-        if (distX > distY){
-            return 14*distY + 10*(distX-distY);
-        }
-
-        return 14*distX + 10*(distY-distX);
     }
 }
