@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 
 
     public GameObject enemy;
-    int numberOfEnemies = 10;
+    int numberOfEnemies = 5;
 
     Vector2 bottomLeft;
     Vector2 topRight;

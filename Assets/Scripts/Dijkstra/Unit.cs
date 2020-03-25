@@ -6,11 +6,12 @@ public class Unit : MonoBehaviour
 {
     public bool displayGridGizmos = false;
     public Transform target;
-    public float speed = 3;
+    public float speed = 1;
     Vector3[] path;
     int targetIndex;
 
     void Start(){
+        target = GameObject.Find("Player").transform;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
