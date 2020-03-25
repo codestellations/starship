@@ -42,8 +42,8 @@ public class Unit : MonoBehaviour
     public void OnDrawGizmos(){
         if (path != null && displayGridGizmos){
             for (int i = targetIndex; i < path.Length; i++){
-                Gizmos.color = Color.white;
-                Gizmos.DrawCube(path[i], Vector3.one);
+                // Gizmos.color = Color.white;
+                // Gizmos.DrawCube(path[i], Vector3.one);
 
                 if (i == targetIndex){
                     Gizmos.DrawLine(transform.position, path[i]);
