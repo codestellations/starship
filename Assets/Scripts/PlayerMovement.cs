@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         timer -= Time.deltaTime;
         if(Input.GetKey(KeyCode.P)  && timer <= 0){
             timer = shootDelay;
-            Vector3 offset = transform.rotation * new Vector3(0, 0.8f, 0);
+            Vector3 offset = transform.rotation * new Vector3(0, 1.5f, 0);
             Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
         }
         if(health <= 0){
