@@ -442,8 +442,6 @@ GameObject:
   m_Component:
   - component: {fileID: 986306489}
   - component: {fileID: 986306490}
-  - component: {fileID: 986306491}
-  - component: {fileID: 986306492}
   m_Layer: 0
   m_Name: enemySpawner
   m_TagString: Untagged
@@ -478,32 +476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6705382415584880103, guid: f22f22194277b1b498932f9dc1924523, type: 3}
---- !u!114 &986306491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986306488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e1c8af8f37ec74dbb0f84b44b89381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 5420236621707701879, guid: b858084a4ee246d4aaa0b45ac177f230, type: 3}
---- !u!65 &986306492
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986306488}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1565369321
 GameObject:
   m_ObjectHideFlags: 0

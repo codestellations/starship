@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 5773061683632175034}
   - component: {fileID: -2030332986185473124}
   - component: {fileID: 6002615559150316373}
-  - component: {fileID: 6691499076765987294}
-  - component: {fileID: 4796045098617710578}
-  - component: {fileID: 5197313072104264302}
-  - component: {fileID: 77903678940099428}
+  - component: {fileID: 6443325399849297102}
+  - component: {fileID: 8638466645997201337}
+  - component: {fileID: 483696199888372946}
   m_Layer: 8
   m_Name: enemy
   m_TagString: Untagged
@@ -134,7 +133,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6691499076765987294
+--- !u!114 &6443325399849297102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +145,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892b33318ce4e134a9e9c8964a148f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4796045098617710578
+  health: 1
+  invulnPeriod: 0
+--- !u!114 &8638466645997201337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705382415584880103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cf7980dc9ab6e47a9eac8692453c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletOffset: {x: 0, y: 0.5, z: 0}
+  bulletPrefab: {fileID: 3092872440820810714, guid: b7cfb8f080ef720489b3ceb6c9245e97,
+    type: 3}
+  fireDelay: 0.5
+--- !u!114 &483696199888372946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,29 +176,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 90
---- !u!114 &5197313072104264302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6705382415584880103}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c73db734b0bdf943a0339db4f65533c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 5
---- !u!114 &77903678940099428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6705382415584880103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e1c8af8f37ec74dbb0f84b44b89381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 764312465196549343, guid: b7cfb8f080ef720489b3ceb6c9245e97, type: 3}
