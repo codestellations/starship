@@ -19,4 +19,9 @@ public class BulletMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    // player's bullet hit enemy, add score then destroy the bullet
+    void OnTriggerEnter2D(){
+        Score.scoreValue += 10;
+        Destroy(gameObject);
+    }
 }
