@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject enemy;
     int numberOfEnemies = 5;
-
+    public float timer = 5;
     Vector2 bottomLeft;
     Vector2 topRight;
 
@@ -25,11 +25,20 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
         }
+
+        numberOfEnemies = 10;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {  
+        timer -= Time.deltaTime;
+
+		if(timer <= 0) {
+			SpawnEnemy();
+
+            timer = 3;
+		}
 
     }
 

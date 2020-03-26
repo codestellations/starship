@@ -68,23 +68,23 @@ public class Grid : MonoBehaviour
 
     public List<Node> path;
 
-    void OnDrawGizmos(){
-        Gizmos.DrawWireCube(transform.position, new Vector2(gridWorldSize.x, gridWorldSize.y));
-        if (grid != null && displayGridGizmos){
-            Node playerNode = NodeFromWorldPoint(player.position);
-            foreach (Node n in grid){
-                Gizmos.color = (n.walkable)?Color.white:Color.red;
-                if (path != null){
-                    if (path.Contains(n)){
-                        Gizmos.color = Color.black;
-                    }
-                }
-                if (playerNode == n){
-                    Gizmos.color = Color.cyan;
-                }
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.1f));
-            }
-        }
-    }
+    // void OnDrawGizmos(){
+    //     Gizmos.DrawWireCube(transform.position, new Vector2(gridWorldSize.x, gridWorldSize.y));
+    //     if (grid != null && displayGridGizmos){
+    //         Node playerNode = NodeFromWorldPoint(player.position);
+    //         foreach (Node n in grid){
+    //             Gizmos.color = (n.walkable)?Color.white:Color.red;
+    //             if (path != null){
+    //                 if (path.Contains(n)){
+    //                     Gizmos.color = Color.black;
+    //                 }
+    //             }
+    //             if (playerNode == n){
+    //                 Gizmos.color = Color.cyan;
+    //             }
+    //             Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.1f));
+    //         }
+    //     }
+    // }
 
 }

@@ -14,9 +14,16 @@ public class Score : MonoBehaviour
     }
     void Update()
     {
-        score.text = "Press A or D to move\nPress P to shoot\nScore: " + scoreValue;   
+        score.text = "Press A or D to move\nPress P to shoot\nScore: " + scoreValue
+                      + "\nHealth: " + PlayerMovement.health;   
         if(death){
             score.text = "GAME OVER\n Score: " + scoreValue + "\n press Q to Exit";  
         }
+
+        if(Input.GetKey(KeyCode.Q)){
+            Application.Quit();
+            Debug.Log("quitting");
+        }
+
     }
 }

@@ -9,6 +9,7 @@ public class EnemyShooting : MonoBehaviour {
 	int bulletLayer;
 
 	public float fireDelay = 10f;
+	float delay = 2;
 	float cooldownTimer = 0;
 
 	Transform player;
@@ -34,8 +35,9 @@ public class EnemyShooting : MonoBehaviour {
 		
 		if( cooldownTimer <= 0 && player != null) {
 			// SHOOT!
-			Debug.Log ("Enemy Pew!");
-			cooldownTimer = fireDelay;
+			// Debug.Log ("Enemy Pew!");
+			// cooldownTimer = fireDelay;
+			cooldownTimer = delay;
 
 			Vector3 offset = transform.rotation * bulletOffset;
 			bulletPrefab = Resources.Load("Missile") as GameObject;

@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     float timer = 0;
     float linearSpeed = 5f;
     float shipSize = 0.01f;
-    int health = 3;
+    public static int health = 5;
 
     void Update()
     {
